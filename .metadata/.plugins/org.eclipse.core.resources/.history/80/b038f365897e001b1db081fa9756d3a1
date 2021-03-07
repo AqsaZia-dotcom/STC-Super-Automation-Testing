@@ -1,0 +1,36 @@
+package STC_Web;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+
+public class ChromeDriverWindows {
+
+	public static void main(String[] args) {
+		
+		String baseUrl = "https://stcsuper.com/";
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\zi gaming\\eclipse-workspace\\SeleniumTesting\\chromedriver.exe");
+		
+		WebDriver driver = new ChromeDriver();
+		
+		driver.manage().window().maximize(); // Maximize the browser Window
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.get(baseUrl); // Loading Stcsuper.com Web page
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);	
+			
+		driver.findElement(By.cssSelector("button[class='login-button account-button button']")).click(); // click on Login Button
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			
+		driver.findElement(By.id("username")).sendKeys("ahmadshahwaiz@gmail.com"); // Enter Email Id into Email Address Input Field
+		driver.findElement(By.id("password")).sendKeys(("nihari123")); // Enter Password into Password Input Field
+		driver.findElement(By.id("kc-login")).click(); // Click on Sign In Button
+
+			
+	
+		
+	}	
+	}
+

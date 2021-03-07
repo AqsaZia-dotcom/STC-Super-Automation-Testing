@@ -1,0 +1,70 @@
+package testclasses;
+
+import java.util.concurrent.TimeUnit;
+
+import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
+
+public class SignUp_TestClass {
+	@Test
+	  public void load_Homepage_Http() {
+		  
+		  System.out.println("Running Testcase: load_Homepage_Http");
+		  
+		  		// declaration and instantiation of objects/variables  
+				final int LOADING_TIME = 10;
+				final String BASE_URL = "http://stcsuper.com/";
+				final String NAME = "Aqsa Zia";
+				final String BRANDNAME = "My Brand";
+				final String EMAILID = "shahwaiz90@yahoo.com";
+				final String PASSWORD = "Nihari123";
+				
+				
+				System.setProperty("webdriver.chrome.driver","C:\\Users\\zi gaming\\eclipse-workspace\\SeleniumTesting\\chromedriver.exe" );
+				WebDriver chromeDriver = new ChromeDriver();
+				
+				// Maximize the browser Window
+				chromeDriver.manage().window().maximize(); 
+				chromeDriver.manage().timeouts().implicitlyWait(LOADING_TIME, TimeUnit.SECONDS);
+				
+				// Launch Web Site  
+				chromeDriver.get(BASE_URL); // Loading Stcsuper.com Web page
+				chromeDriver.manage().timeouts().implicitlyWait(LOADING_TIME, TimeUnit.SECONDS);
+				
+				String text = chromeDriver.findElement(By.xpath("//h1[@class='app-name']")).getText();
+				Assert.assertEquals(text, "eCare");
+				
+				// Click on SignUp Button
+				chromeDriver.findElement(By.cssSelector("button[class='sign-up-button account-button button']")).click(); 
+				chromeDriver.manage().timeouts().implicitlyWait(LOADING_TIME, TimeUnit.SECONDS);
+				chromeDriver.manage().timeouts().implicitlyWait(LOADING_TIME, TimeUnit.SECONDS);
+				
+				// Enter Name into Name Input Field
+				chromeDriver.findElement(By.id("admin-name-input-field")).sendKeys(NAME); 
+				
+				// Enter Brand Name into Brand Name Input Field
+				chromeDriver.findElement(By.id("company-name-input-field")).sendKeys(BRANDNAME); 
+					
+				// Enter Email Id into Email Address Input Field
+				chromeDriver.findElement(By.id("admin-email-input-field")).sendKeys(EMAILID); 
+				
+				// Enter Password into Password Input Field
+				chromeDriver.findElement(By.id("admin-password-input-field")).sendKeys((PASSWORD)); 
+				
+				// Click on Sign In Button
+				chromeDriver.findElement(By.cssSelector("button[class='create-account-button button']")).click(); 
+				
+				chromeDriver.quit();
+		  
+		  
+	  }
+	  
+	  
+	  
+	 
+	 
+	}
+

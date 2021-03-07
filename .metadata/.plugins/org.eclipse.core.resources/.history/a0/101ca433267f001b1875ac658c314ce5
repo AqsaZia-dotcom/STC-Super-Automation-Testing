@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name = "STC_SUPER TESTSUITE">
+<test name = "Parallel Running Tests">
+	<classes>
+			<class name = "testclasses.Login_TestClass">  </class>
+	</classes>
+</test>
+<test name = "Parallel Running Tests">
+	<classes>
+			<class name = "testclasses.SignUp_TestClass">  </class>
+	</classes>
+</test>
+</suite>

@@ -1,0 +1,56 @@
+package stcweb;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.junit.Assert;
+
+public class LoginScreen {
+
+	public static void main(String[] args) throws Exception  {
+		
+		// declaration and instantiation of objects/variables  
+		final int LOADING_TIME = 10;
+		final String BASE_URL = "https://stcsuper.com/";
+		final String CHROME_DRIVER_PATH = "C:\\Users\\zi gaming\\eclipse-workspace\\SeleniumTesting\\chromedriver.exe";
+		final String EMAILID = "ahmadshahwaiz@gmail.com";
+		final String PASSWORD = "nihari123";
+		
+		WebDriver chromeDriver = new ChromeDriver();
+		System.setProperty("webdriver.chrome.driver", CHROME_DRIVER_PATH);
+		
+		// Maximize the browser Window
+		chromeDriver.manage().window().maximize(); 
+		chromeDriver.manage().timeouts().implicitlyWait(LOADING_TIME, TimeUnit.SECONDS);
+		
+		// Launch Web Site  
+		chromeDriver.get(BASE_URL); // Loading Stcsuper.com Web page
+		chromeDriver.manage().timeouts().implicitlyWait(LOADING_TIME, TimeUnit.SECONDS);
+		
+		
+		String text = chromeDriver.findElement(By.xpath("//h1[@class='app-name']")).getText();
+		
+		
+		// Click on Login Button
+		chromeDriver.findElement(By.cssSelector("button[class='login-button account-button button']")).click(); 
+		chromeDriver.manage().timeouts().implicitlyWait(LOADING_TIME, TimeUnit.SECONDS);
+			
+		// Enter Email Id into Email Address Input Field
+		chromeDriver.findElement(By.id("username")).sendKeys(EMAILID); 
+		
+		// Enter Password into Password Input Field
+		chromeDriver.findElement(By.id("password")).sendKeys((PASSWORD)); 
+		
+		// Click on Sign In Button
+		chromeDriver.findElement(By.id("kc-login")).click(); 
+		
+		chromeDriver.quit();
+
+			
+	
+		
+	}	
+	}
+

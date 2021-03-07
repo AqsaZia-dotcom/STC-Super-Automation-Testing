@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;testclasses.NewTest&apos; to &apos;Login_TestClass&apos;&#x0D;&#x0A;- Original project: &apos;STCTestNG&apos;&#x0D;&#x0A;- Original element: &apos;testclasses.NewTest&apos;&#x0D;&#x0A;- Renamed element: &apos;testclasses.Login_TestClass&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;NewTest&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;testclasses{NewTest.java[NewTest" matchStrategy="1" name="Login_TestClass" qualified="false" references="true" similarDeclarations="false" stamp="1615049049215" textual="false" version="1.0"/>
+</session>

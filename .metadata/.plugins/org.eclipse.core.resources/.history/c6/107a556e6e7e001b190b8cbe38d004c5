@@ -1,0 +1,16 @@
+package STC_Web;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class ChromeDriverWindows {
+
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\zi gaming\\eclipse-workspace\\SeleniumTesting\\chromedriver");
+		WebDriver driver = new ChromeDriver();
+		String baseUrl = "https://stcsuper.com/";
+		driver.get(baseUrl);
+		
+	}
+
+}

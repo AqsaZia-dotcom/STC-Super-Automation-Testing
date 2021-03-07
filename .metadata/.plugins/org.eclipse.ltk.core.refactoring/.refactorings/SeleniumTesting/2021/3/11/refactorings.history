@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;EMAILID&apos; in &apos;stcweb.LoginScreen.main(...)&apos; to &apos;EMAIL_ID&apos;&#x0D;&#x0A;- Original project: &apos;SeleniumTesting&apos;&#x0D;&#x0A;- Original element: &apos;stcweb.LoginScreen.main(String[]).EMAILID&apos;&#x0D;&#x0A;- Renamed element: &apos;EMAILID&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;EMAILID&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;stcweb{LoginScreen.java[LoginScreen~main~\[QString;@EMAILID!556!604!569!575!QString;!16!false" name="EMAIL_ID" references="true" stamp="1615100201599" version="1.0"/>
+</session>

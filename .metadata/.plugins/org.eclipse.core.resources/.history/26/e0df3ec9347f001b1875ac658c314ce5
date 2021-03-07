@@ -1,0 +1,118 @@
+package testclasses;
+
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
+
+import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.junit.Assert;
+
+public class Login_TestClass extends Configuration {
+	  
+		WebDriver chromeDriver;
+		ExtentReports report;
+		ExtentTest test;
+		
+	 @BeforeMethod
+	 public void initializationOfChromeDriver() {
+		 		
+		 		report = new ExtentReports("C:\\Users\\zi gaming\\eclipse-workspace\\STCTestNG\\LoginTestResults.html");
+		 		test = report.startTest("Verify Tests");
+		 		
+			// declaration and instantiation of objects/variables  
+				System.setProperty("webdriver.chrome.driver", DRIVER_PATH);
+				chromeDriver = new ChromeDriver();
+				test.log(LogStatus.INFO, "Browser Started...");
+	}
+			
+	 @Test
+	 public void load_Homepage_Http() {
+		  
+		 	System.out.println("Running Testcase 1 : load_Homepage_Http");	
+		 	
+			// Maximize the browser Window
+			chromeDriver.manage().window().maximize(); 
+			test.log(LogStatus.INFO, "Browser Maximized!");
+			chromeDriver.manage().timeouts().implicitlyWait(LOADING_TIME, TimeUnit.SECONDS);
+				
+			// Launch Web Site  
+			chromeDriver.get(BASE_URL); // Loading Stcsuper.com Web page
+			test.log(LogStatus.INFO, "Web Application Loaded!");
+			chromeDriver.manage().timeouts().implicitlyWait(LOADING_TIME, TimeUnit.SECONDS);
+				
+			String text = chromeDriver.findElement(By.xpath("//h1[@class='app-name']")).getText();
+			Assert.assertTrue(text != null);
+			test.log(LogStatus.PASS, "Login Successful!");
+				
+			// Click on Login Button
+			chromeDriver.findElement(By.cssSelector("button[class='login-button account-button button']")).click(); 
+			test.log(LogStatus.INFO, "Clicked on LogIn Link!");
+			chromeDriver.manage().timeouts().implicitlyWait(LOADING_TIME, TimeUnit.SECONDS);
+				
+			// Enter Email Id into Email Address Input Field
+			chromeDriver.findElement(By.id("username")).sendKeys(Login.EMAIL_ID); 
+			test.log(LogStatus.INFO, "Email ID is Entered.");
+				
+			// Enter Password into Password Input Field
+			chromeDriver.findElement(By.id("password")).sendKeys((Login.PASSWORD)); 
+			test.log(LogStatus.INFO, "Password is Entered.");
+				
+			// Click on Sign In Button
+			chromeDriver.findElement(By.id("kc-login")).click(); 
+			test.log(LogStatus.INFO, "User has Logged In.");
+
+			chromeDriver.manage().timeouts().implicitlyWait(LOADING_TIME, TimeUnit.SECONDS);
+				
+	}
+		  
+	  
+	@Test
+	public void load_Homepage_Https() {
+		  
+  		System.out.println("Running Testcase 2 : load_Homepage_Https");
+  		chromeDriver.manage().timeouts().implicitlyWait(LOADING_TIME, TimeUnit.SECONDS);
+		
+		// Maximize the browser Window
+		chromeDriver.manage().window().maximize(); 
+		chromeDriver.manage().timeouts().implicitlyWait(LOADING_TIME, TimeUnit.SECONDS);
+		
+		// Launch Web Site  
+		chromeDriver.get(BASE_URL); // Loading Stcsuper.com Web page
+		chromeDriver.manage().timeouts().implicitlyWait(LOADING_TIME, TimeUnit.SECONDS);
+		
+		String text = chromeDriver.findElement(By.xpath("//h1[@class='app-name']")).getText();
+		Assert.assertEquals(text, "eCare");Assert.assertTrue(text != null);
+		test.log(LogStatus.PASS, "Login Successful!");
+		
+		// Click on Login Button
+		chromeDriver.findElement(By.cssSelector("button[class='login-button account-button button']")).click(); 
+		chromeDriver.manage().timeouts().implicitlyWait(LOADING_TIME, TimeUnit.SECONDS);
+			
+		// Enter Email Id into Email Address Input Field
+		chromeDriver.findElement(By.id("username")).sendKeys(Login.EMAIL_ID); 
+		
+		// Enter Password into Password Input Field
+		chromeDriver.findElement(By.id("password")).sendKeys((Login.PASSWORD)); 
+		
+		// Click on Sign In Button
+		chromeDriver.findElement(By.id("kc-login")).click(); 
+		  
+	}
+	  
+	@AfterMethod
+	public void closeBrowser()
+	{
+		chromeDriver.close();
+		report.endTest(test);
+		report.flush();
+	} 
+  
+ 
+ 
+}

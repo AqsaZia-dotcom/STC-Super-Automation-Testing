@@ -1,0 +1,9 @@
+<suite name = "STC_SUPER TESTSUITE">
+<test name = "Application Test">
+<classes>
+<class name = "testclasss.Login_TestClass">  </class>
+<class name = "testclasss.SignUp_TestClass">  </class>
+<class name = "testclasss.ChangeLanguage_TestClass">  </class>
+</classes>
+</test>
+</suite>

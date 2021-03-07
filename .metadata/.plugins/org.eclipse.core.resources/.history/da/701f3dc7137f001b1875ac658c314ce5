@@ -1,0 +1,19 @@
+package stcweb;
+
+public class Configuration {
+
+	// declaration and instantiation of objects/variables  
+	final static int LOADING_TIME = 10;
+	final static String BASE_URL = "https://stcsuper.com/";
+	final static String DRIVER_PATH = "C:\\Users\\zi gaming\\eclipse-workspace\\SeleniumTesting\\chromedriver.exe";
+	
+	
+	Configuration(){
+		
+	}
+
+	public class Login{
+		final static String EMAIL_ID = "ahmadshahwaiz@gmail.com";
+		final static String PASSWORD = "nihari123";
+	}
+}
